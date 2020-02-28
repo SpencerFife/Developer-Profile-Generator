@@ -22,7 +22,9 @@ function writeToFile(fileName, data) {}
 async function init() {
   try {
     const userinput = await inquirer.prompt(questions);
-    console.log(userinput);
+    const queryUrl = `https://api.github.com/users/${userinput.userName}`;
+    const githubInfo = await axios.get(queryUrl);
+    console.log(userinput, githubInfo.data);
   } catch (error) {
     console.log(error);
   }
