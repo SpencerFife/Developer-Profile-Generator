@@ -19,6 +19,13 @@ const questions = [
 
 function writeToFile(fileName, data) {}
 
-function init() {}
+async function init() {
+  try {
+    const userinput = await inquirer.prompt(questions);
+    console.log(userinput);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 init();
