@@ -27,7 +27,7 @@ const colors = {
   }
 };
 
-function generateHTML(data) {
+module.exports = function generateHTML(data) {
   return `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -68,7 +68,7 @@ function generateHTML(data) {
           />
           <h1 class="display-4">Hi!</h1>
           <h2 class="lead">
-            My name is ${$data.name}!
+            My name is ${data.name}!
           </h2>
           <hr class="my-4" />
           <h5>Currently @ ${data.company}</h5>
@@ -123,4 +123,4 @@ function generateHTML(data) {
       </div>
     </body>
   </html>`;
-}
+};

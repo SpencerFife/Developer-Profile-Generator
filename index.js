@@ -2,7 +2,7 @@
 
 const inquirer = require("inquirer");
 const axios = require("axios");
-
+const generatedHTML = require("./generatedHTML");
 const questions = [
   {
     type: "input",
@@ -26,6 +26,12 @@ async function init() {
     const githubInfo = await axios.get(queryUrl);
     const starredRepo = await axios.get(queryUrl + `/starred`);
     console.log(userinput, githubInfo.data, starredRepo);
+    const data = {
+      ...githubInfo.data,
+      star_numbers: starredRepo.data.length,
+      color: userinput.colors
+    };
+    console.log(generatedHTML(data));
   } catch (error) {
     console.log(error);
   }
