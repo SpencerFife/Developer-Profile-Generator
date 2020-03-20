@@ -24,7 +24,8 @@ async function init() {
     const userinput = await inquirer.prompt(questions);
     const queryUrl = `https://api.github.com/users/${userinput.userName}`;
     const githubInfo = await axios.get(queryUrl);
-    console.log(userinput, githubInfo.data);
+    const starredRepo = await axios.get(queryUrl + `/starred`);
+    console.log(userinput, githubInfo.data, starredRepo);
   } catch (error) {
     console.log(error);
   }
