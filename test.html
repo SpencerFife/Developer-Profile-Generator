@@ -10,14 +10,31 @@
       crossorigin="anonymous"
     />
     <title>Document</title>
+    <style>
+      a {
+        color: white;
+      }
+      .card,
+      .card-body,
+      .jumbotron {
+        background-color: black;
+        color: white;
+      }
+      img {
+        border: 2px solid yellow;
+      }
+      body {
+        background-color: pink;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron text-center">
         <img
           src="https://avatars2.githubusercontent.com/u/56457112?v="
           alt="..."
-          class="rounded-circle"
+          class="rounded-circle w-50"
         />
         <h1 class="display-4">Hi!</h1>
         <h2 class="lead">
@@ -30,9 +47,9 @@
         <a href="">Blog</a>
       </div>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 my-3">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Public Repositories</h5>
               <p class="card-text">
                 4
@@ -40,9 +57,9 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 my-3">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Followers</h5>
               <p class="card-text">
                 5
@@ -50,9 +67,9 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 my-3">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">GitHub Stars</h5>
               <p class="card-text">
                 7
@@ -60,9 +77,9 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 my-3">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Following</h5>
               <p class="card-text">
                 29
