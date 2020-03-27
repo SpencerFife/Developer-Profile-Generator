@@ -5,7 +5,7 @@ const colors = {
     wrapperBackground: "#E6E1C3",
     headerBackground: "#C1C72C",
     headerColor: "black",
-    photoBorderColor: "#black"
+    photoBorderColor: "black"
   },
   blue: {
     wrapperBackground: "#5F64D3",
@@ -42,13 +42,13 @@ module.exports = function generateHTML(data) {
       <title>Document</title>
       <style>
         a {
-          color: ${colors[data.color].headerColor};
+          color: white;
         }
         .card,
         .card-body,
         .jumbotron {
           background-color: ${colors[data.color].headerColor};
-          color: ${colors[data.color].headerColor};
+          color: white;
         }
         img {
           border: 6px solid ${colors[data.color].photoBorderColor};

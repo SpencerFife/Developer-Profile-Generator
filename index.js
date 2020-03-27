@@ -2,7 +2,11 @@
 
 const inquirer = require("inquirer");
 const axios = require("axios");
+const fs = require("fs");
 const generatedHTML = require("./generatedHTML");
+const puppeteer = require("puppeteer");
+//const Profile = require("./index.html");
+
 const questions = [
   {
     type: "input",
@@ -17,7 +21,20 @@ const questions = [
   }
 ];
 
-function writeToFile(fileName, data) {}
+//function printPDF(fileName, data) {}
+
+async function printPDF(fileName, htmlFile) {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+  await page.setContent(htmlFile, { waitUntil: "networkidle0" });
+  const pdf = await page.pdf({
+    path: `./output/${fileName}.pdf`,
+    format: "Letter",
+    printBackground: true
+  });
+  await browser.close();
+  return pdf;
+}
 
 async function init() {
   try {
@@ -31,7 +48,12 @@ async function init() {
       star_numbers: starredRepo.data.length,
       color: userinput.colors
     };
-    console.log(generatedHTML(data));
+    const html = generatedHTML(data);
+    fs.writeFile("index.html", html, err => {
+      if (err) throw err;
+      console.log("The file has been saved!");
+    });
+    await printPDF("githubPDF", html);
   } catch (error) {
     console.log(error);
   }
