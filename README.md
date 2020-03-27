@@ -24,7 +24,7 @@ This is a Node command-line application that collects information from the user'
 
 ## Demo
 
-![inAction1](https://giant.gfycat.com/VacantAccurateAmericanredsquirrel.webm)
+![demo](/assets/VacantAccurateAmericanredsquirrel.webm)
 
 ## User-Story
 
