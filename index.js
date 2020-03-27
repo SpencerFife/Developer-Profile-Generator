@@ -5,6 +5,7 @@ const axios = require("axios");
 const fs = require("fs");
 const generatedHTML = require("./generatedHTML");
 const puppeteer = require("puppeteer");
+const open = require("open");
 //const Profile = require("./index.html");
 
 const questions = [
@@ -14,14 +15,12 @@ const questions = [
     message: "What is your GitHub user name?"
   },
   {
-    type: "list",
+    type: "rawlist",
     name: "colors",
     message: "What is your favorite color?",
     choices: ["green", "blue", "red", "pink"]
   }
 ];
-
-//function printPDF(fileName, data) {}
 
 async function printPDF(fileName, htmlFile) {
   const browser = await puppeteer.launch({ headless: true });
@@ -54,6 +53,7 @@ async function init() {
       console.log("The file has been saved!");
     });
     await printPDF("githubPDF", html);
+    open("./output/githubPDF.pdf");
   } catch (error) {
     console.log(error);
   }

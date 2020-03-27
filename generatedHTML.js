@@ -42,13 +42,13 @@ module.exports = function generateHTML(data) {
       <title>Document</title>
       <style>
         a {
-          color: white;
+          color: ${colors[data.color].headerColor};
         }
         .card,
         .card-body,
         .jumbotron {
-          background-color: ${colors[data.color].headerColor};
-          color: white;
+          background-color: ${colors[data.color].headerBackground};
+          color: ${colors[data.color].headerColor};
         }
         img {
           border: 6px solid ${colors[data.color].photoBorderColor};
